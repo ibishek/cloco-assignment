@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "ES5",
+        "paths": {
+            "@/*": ["resources/js/components/*"],
+            "@t/*": ["resources/js/templates/*"],
+            "@s/*": ["resources/js/stores/*"]
+        }
+    },
+    "exclude": ["node_modules", "public", ".vscode"]
+}

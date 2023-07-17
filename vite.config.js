@@ -10,4 +10,11 @@ export default defineConfig({
         }),
         vue()
     ],
+    resolve: {
+        alias: {
+            '@': 'resources/js/components/',
+            '@t': 'resources/js/templates/',
+            '@s': 'resources/js/stores/'
+        }
+    }
 });
