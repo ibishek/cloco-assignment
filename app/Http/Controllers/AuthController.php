@@ -19,6 +19,10 @@ class AuthController extends Controller
 
             return response()->json([], 204);
         }
+
+        return response()->json([
+            'message' => 'These credentials do not match with our records!!!'
+        ], 404);
     }
 
     public function logout(Request $request)
