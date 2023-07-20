@@ -15,7 +15,7 @@ export default [
         component: importPage('Login'),
         meta: {
             title: 'Login',
-            middleware: 'guest'
+            authRequired: false
         }
     },
     {
@@ -24,7 +24,16 @@ export default [
         component: importPage('Register'),
         meta: {
             title: 'Register',
-            middleware: 'guest'
+            authRequired: false
+        }
+    },
+    {
+        path: '/admin/dashboard',
+        name: 'admin-dashboard',
+        component: importPage('Dashboard'),
+        meta: {
+            title: 'Dashboard',
+            authRequired: true
         }
     }
 ];
