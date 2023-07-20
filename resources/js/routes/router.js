@@ -29,4 +29,19 @@ router.beforeEach(async (to, from, next) => {
     }
 });
 
+axios.interceptors.response.use(
+    function (response) {
+        return response;
+    },
+    function (error) {
+        if ([401, 419].includes(error.response.status) && !error.response.request.responseURL.endsWith('api/user')) {
+            const useAuth = useAuthStore();
+            useAuth.deAuthenticate();
+            router.push({
+                name: 'login'
+            });
+        }
+    }
+);
+
 export default router;
