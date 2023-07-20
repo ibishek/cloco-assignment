@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Resources\InitialUserResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    return new InitialUserResource($request->user());
 });
 
 Route::post('register', [AdminController::class, 'register'])->middleware([HandlePrecognitiveRequests::class]);
