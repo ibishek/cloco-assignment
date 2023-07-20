@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{vue_capture}', function () {
+Route::post('login', [AuthController::class, 'login'])->middleware([HandlePrecognitiveRequests::class]);
+Route::post('logout', [AuthController::class, 'logout']);
+
+Route::get('login', function() {
     return view('welcome');
-})->where('{vue_capture}', '[\/\w\.-]*');
+})->name('login');
+
+Route::get('/{vue_capture?}', function () {
+    return view('welcome');
+})->where('vue_capture', '(.*)');
