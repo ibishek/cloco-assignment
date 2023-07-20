@@ -13,8 +13,18 @@ const props = withDefaults(defineProps<PropsInterface>(), {
     <input
         :type="props.type"
         class="border border-b-4 border-slate-200 px-4 py-3"
-        v-model="props.modelValue"
-        @input="$emit('input', ($event.target as HTMLInputElement).value)"
-        @change="$emit('change', ($event.target as HTMLInputElement).value)"
+        :value="props.modelValue"
+        @input="
+            $emit(
+                'update:modelValue',
+                ($event.target as HTMLInputElement).value,
+            )
+        "
+        @change="
+            $emit(
+                'update:modelValue',
+                ($event.target as HTMLInputElement).value,
+            )
+        "
     />
 </template>
