@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->index();
             $table->timestamp('dob')->nullable();
             $table->enum('gender', ['m', 'f', 'o']);
             $table->year('first_release_year')->nullable();

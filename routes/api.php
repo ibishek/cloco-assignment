@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ArtistController;
 use Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,8 +18,26 @@ use App\Http\Resources\InitialUserResource;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return new InitialUserResource($request->user());
-});
-
 Route::post('register', [AdminController::class, 'register'])->middleware([HandlePrecognitiveRequests::class]);
+
+Route::middleware('auth:sanctum')->group(function() {
+    Route::get('user', function (Request $request) {
+        return new InitialUserResource($request->user());
+    });
+
+    Route::prefix('artists')->group(function() {
+        Route::get('/', [ArtistController::class, 'index']);
+        Route::post('/', [ArtistController::class, 'store']);
+        Route::get('{slug}', [ArtistController::class, 'show']);
+        Route::put('{slug}', [ArtistController::class, 'update']);
+        Route::delete('{slug}', [ArtistController::class, 'destroy']);
+    });
+
+    Route::prefix('users')->group(function() {
+        Route::get('/', [ArtistController::class, 'index']);
+        Route::post('/', [ArtistController::class, 'store']);
+        Route::get('{slug}', [ArtistController::class, 'show']);
+        Route::put('{slug}', [ArtistController::class, 'update']);
+        Route::delete('{slug}', [ArtistController::class, 'destroy']);
+    });
+});

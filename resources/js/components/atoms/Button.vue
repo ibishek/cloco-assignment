@@ -24,10 +24,12 @@ const classes = computed<string>(() => {
     }
     return style;
 });
+
+defineEmits(["click"]);
 </script>
 
 <template>
-    <button class="px-4 py-3" :class="classes">
+    <button class="px-4 py-3" :class="classes" v-on:click="$emit('click')">
         <slot></slot>
     </button>
 </template>

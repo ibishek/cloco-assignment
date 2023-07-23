@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
 import { useAuthStore } from "../stores/useAuthStore";
-import axios from "axios";
 
 const router = createRouter({
     history: createWebHistory(),

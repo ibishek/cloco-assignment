@@ -39,7 +39,7 @@ const login = () =>
 function attemptToRedirect(): void {
     if (useAuth.isAuthenticated) {
         router.push({
-            name: "admin-dashboard",
+            name: "dashboard",
         });
     }
 }
