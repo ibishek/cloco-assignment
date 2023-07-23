@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import CenterCard from "@/atoms/CenterCard.vue";
-import Button from "@/atoms/Button.vue";
-import Input from "@/atoms/Input.vue";
-import Label from "@/atoms/Label.vue";
-import Error from "@/atoms/Error.vue";
+import CenterCard from "@/components/atoms/CenterCard.vue";
+import Button from "@/components/atoms/Button.vue";
+import Input from "@/components/atoms/Input.vue";
+import Label from "@/components/atoms/Label.vue";
+import Error from "@/components/atoms/Error.vue";
 import { createToaster } from "@meforma/vue-toaster";
 import { useForm } from "laravel-precognition-vue";
 import { useRouter } from "vue-router";

@@ -2,8 +2,8 @@
 import { computed } from "@vue/reactivity";
 
 interface ButtonPropsInterface {
-    grow: boolean;
-    secondary: boolean;
+    grow?: boolean;
+    secondary?: boolean;
 }
 
 const props = withDefaults(defineProps<ButtonPropsInterface>(), {

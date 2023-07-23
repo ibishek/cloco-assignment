@@ -19,9 +19,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': 'resources/js/components/',
-            '@t': 'resources/js/templates/',
-            '@s': 'resources/js/stores/'
+            '@': 'resources/js/',
         }
     }
 });

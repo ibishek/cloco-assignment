@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface PropsInterface {
-    type: string;
+    type?: string;
     modelValue: string | object;
 }
 

@@ -35,5 +35,14 @@ export default [
             title: 'Dashboard',
             authRequired: true
         }
+    },
+    {
+        path: '/:catchAll(.*)*',
+        name: '404',
+        component: importPage('404'),
+        meta: {
+            title: "404 Error Not Found!!!",
+            authRequired: false
+        }
     }
 ];
