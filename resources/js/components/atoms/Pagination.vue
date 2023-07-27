@@ -31,7 +31,10 @@ function nextPage() {
 </script>
 
 <template>
-    <nav class="flex items-center gap-6">
+    <nav
+        class="flex items-center gap-6"
+        v-if="props.links.next || props.links.prev"
+    >
         <button
             type="button"
             @click="previousPage"
