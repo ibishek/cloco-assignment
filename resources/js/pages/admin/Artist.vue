@@ -3,6 +3,7 @@ import Button from "@/components/atoms/Button.vue";
 import Pagination from "@/components/atoms/Pagination.vue";
 import axios, { AxiosResponse, AxiosError } from "axios";
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 interface ArtistInterface {
     name: string;
@@ -40,12 +41,20 @@ function fetchArtist(url: string): void {
 }
 
 onMounted(() => fetchArtist("/api/artists"));
+
+const router = useRouter();
+
+function returnToAdd(): void {
+    router.push({
+        name: "artist-create",
+    });
+}
 </script>
 
 <template>
     <div class="space-y-6">
         <div class="flex items-center justify-end">
-            <Button>Add artist</Button>
+            <Button @click="returnToAdd">Add artist</Button>
         </div>
         <div v-if="isLoading" class="py-3 text-center">Loading ...</div>
         <table v-else class="w-full table-auto border-collapse">
