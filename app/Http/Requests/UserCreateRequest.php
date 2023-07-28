@@ -12,7 +12,7 @@ class UserCreateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,9 +27,9 @@ class UserCreateRequest extends FormRequest
             'last_name' => ['required', 'string', 'min:2', 'max:55'],
             'email' => ['required', 'unique:users,email', 'email'],
             'gender' => ['required', Rule::in(['m', 'f', 'o'])],
+            'phone' => ['nullable', 'digits_between:8,14'],
             'password' => ['required', 'confirmed'],
             'password_confirmation' => ['required'],
-            'phone' => ['nullable', 'digits_between:8,14']
         ];
     }
 }

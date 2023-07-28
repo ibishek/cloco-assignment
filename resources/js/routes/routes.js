@@ -49,6 +49,15 @@ export default [
                 },
             },
             {
+                path: "users/create",
+                name: "user-create",
+                component: importAdmin("UserCreate"),
+                meta: {
+                    title: "Create user",
+                    authRequired: true,
+                },
+            },
+            {
                 path: "artists",
                 name: "artist-index",
                 component: importAdmin("Artist"),
