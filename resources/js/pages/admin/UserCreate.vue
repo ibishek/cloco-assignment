@@ -37,8 +37,7 @@ const register = () =>
             toast.info("User created successfully. Please, login");
         })
         .catch((error) => {
-            console.log(error);
-            toast.error(error.response.data?.message);
+            toast.error(error.response.data);
         });
 </script>
 
@@ -56,6 +55,7 @@ const register = () =>
                     v-model="registerFrom.first_name"
                     placeholder="Jon"
                     class="w-full"
+                    @change="registerFrom.validate('first_name')"
                 />
                 <Error v-if="registerFrom.invalid('first_name')">
                     {{ registerFrom.errors.first_name }}
@@ -68,6 +68,7 @@ const register = () =>
                     v-model="registerFrom.last_name"
                     placeholder="Doe"
                     class="w-full"
+                    @change="registerFrom.validate('last_name')"
                 />
                 <Error v-if="registerFrom.invalid('last_name')">
                     {{ registerFrom.errors.last_name }}
@@ -117,6 +118,7 @@ const register = () =>
                     v-model="registerFrom.email"
                     placeholder="someone@one.com"
                     class="w-full"
+                    @change="registerFrom.validate('email')"
                 />
                 <Error v-if="registerFrom.invalid('email')">
                     {{ registerFrom.errors.email }}
@@ -125,11 +127,12 @@ const register = () =>
             <div class="space-y-2">
                 <Label for="phone">Phone number:</Label>
                 <Input
-                    type="phone"
+                    type="text"
                     id="phone"
                     v-model="registerFrom.phone"
-                    placeholder="someone@one.com"
+                    placeholder="0123456789"
                     class="w-full"
+                    @change="registerFrom.validate('phone')"
                 />
                 <Error v-if="registerFrom.invalid('phone')">
                     {{ registerFrom.errors.phone }}
@@ -143,6 +146,7 @@ const register = () =>
                     v-model="registerFrom.dob"
                     placeholder="1995-10-15"
                     class="w-full"
+                    @change="registerFrom.validate('dob')"
                 />
                 <Error v-if="registerFrom.invalid('dob')">
                     {{ registerFrom.errors.dob }}
@@ -156,6 +160,7 @@ const register = () =>
                     v-model="registerFrom.street_address_one"
                     placeholder="121-07 Jamaica Ave"
                     class="w-full"
+                    @change="registerFrom.validate('street_address_one')"
                 />
                 <Error v-if="registerFrom.invalid('street_address_one')">
                     {{ registerFrom.errors.street_address_one }}
@@ -169,6 +174,7 @@ const register = () =>
                     v-model="registerFrom.street_address_two"
                     placeholder="121th street"
                     class="w-full"
+                    @change="registerFrom.validate('street_address_two')"
                 />
                 <Error v-if="registerFrom.invalid('street_address_two')">
                     {{ registerFrom.errors.street_address_two }}
@@ -182,6 +188,7 @@ const register = () =>
                     v-model="registerFrom.state"
                     placeholder="121th street"
                     class="w-full"
+                    @change="registerFrom.validate('state')"
                 />
                 <Error v-if="registerFrom.invalid('state')">
                     {{ registerFrom.errors.state }}
@@ -195,6 +202,7 @@ const register = () =>
                     v-model="registerFrom.district"
                     placeholder="121th street"
                     class="w-full"
+                    @change="registerFrom.validate('district')"
                 />
                 <Error v-if="registerFrom.invalid('district')">
                     {{ registerFrom.errors.district }}
@@ -208,6 +216,7 @@ const register = () =>
                     v-model="registerFrom.country"
                     placeholder="121th street"
                     class="w-full"
+                    @change="registerFrom.validate('country')"
                 />
                 <Error v-if="registerFrom.invalid('country')">
                     {{ registerFrom.errors.country }}
@@ -221,6 +230,7 @@ const register = () =>
                     v-model="registerFrom.password"
                     placeholder="password"
                     class="w-full"
+                    @change="registerFrom.validate('password')"
                 />
                 <Error v-if="registerFrom.invalid('password')">
                     {{ registerFrom.errors.password }}
