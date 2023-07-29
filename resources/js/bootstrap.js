@@ -7,6 +7,10 @@
 import axios from 'axios';
 window.axios = axios;
 
+if (typeof window.axios.defaults.headers.common === 'undefined') {
+    window.axios.defaults.headers.common = {};
+}
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.withCredentials = true;
 
