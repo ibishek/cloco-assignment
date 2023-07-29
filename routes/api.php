@@ -36,7 +36,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::prefix('users')->group(function() {
         Route::get('/', [UserController::class, 'index']);
-        Route::post('/', [UserController::class, 'store']);
+        Route::post('/', [UserController::class, 'store'])->middleware([HandlePrecognitiveRequests::class]);
         Route::get('{slug}', [UserController::class, 'show']);
         Route::put('{slug}', [UserController::class, 'update']);
         Route::delete('{slug}', [UserController::class, 'destroy']);
