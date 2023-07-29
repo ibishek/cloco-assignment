@@ -7,6 +7,8 @@ interface PropsInterface {
 const props = withDefaults(defineProps<PropsInterface>(), {
     type: "text",
 });
+
+defineEmits(["change", "update:modelValue"]);
 </script>
 
 <template>
@@ -20,11 +22,6 @@ const props = withDefaults(defineProps<PropsInterface>(), {
                 ($event.target as HTMLInputElement).value,
             )
         "
-        @change="
-            $emit(
-                'update:modelValue',
-                ($event.target as HTMLInputElement).value,
-            )
-        "
+        @change="$emit('change', ($event.target as HTMLInputElement).value)"
     />
 </template>
